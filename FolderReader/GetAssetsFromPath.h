@@ -14,6 +14,11 @@ class BUILDER_API UGetAssetsFromPath : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 
-	UFUNCTION(BlueprintCallable, Category ="Utils")
-	void GetAllAssetsOfClassFromPath(UClass* classType, FString path, TArray<AFolderFileList*> &FoundObjects);
+public:
+	UFUNCTION(BlueprintCallable, Category = "Utils")
+	static void GetAllAssetClassesByFolderFromPath(FString path, AFolderFileList*& FoundObjects);
+	
+private:
+	static AFolderFileList* GetFolderData(FString path, AFolderFileList* parentFolder, int recursiveLevel);
+	static void PrintStringWithTab(FString text, int tabs);
 };

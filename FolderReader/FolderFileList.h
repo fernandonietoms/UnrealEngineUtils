@@ -12,16 +12,16 @@ class BUILDER_API AFolderFileList : public AActor
 	GENERATED_BODY()
 
 public:
-	UPROPERTY()
-	FString path;
+	UPROPERTY(BlueprintReadWrite)
+	FString folderGamePath;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	FString folderName;
 
-	UPROPERTY()
-	TArray<FString> list;
-	
-	// Sets default values for this actor's properties
-	AFolderFileList();
-	AFolderFileList(FString path,FString folderName, TArray<FString> list);
+	UPROPERTY(BlueprintReadWrite)
+	TArray<UClass*> folderList;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<AFolderFileList*> folderInsideFolderList;
+
 };
